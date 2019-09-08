@@ -16,6 +16,9 @@
         name: "Nav",
         props: {
             nav_list: Array
+        },
+        methods:{
+
         }
     }
 </script>

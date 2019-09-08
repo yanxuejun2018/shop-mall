@@ -17,6 +17,7 @@
         props:{
             sowing_list: Array
         },
+
         data() {
             return {
                 swiperOption: {
