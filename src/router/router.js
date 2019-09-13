@@ -9,7 +9,7 @@ let routers=  [
     component:"dashboard/index",
     children:[
       {
-        meta:{title:"首页"},
+        meta:{title:"首页",keepAlive:true},
         component: 'home/index',
       },
       {
@@ -21,7 +21,7 @@ let routers=  [
         component: 'order/index',
       },
         {
-            meta:{title:"category"},
+            meta:{title:"category",keepAlive:true},
             component: 'category/index',
         },
       {

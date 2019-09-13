@@ -16,6 +16,8 @@ import '@/style/common.less'
 // 4. 引入rem
 import '@/config/rem.js'
 
+//5.过滤器
+import '@/config/filters.js'
 Vue.config.productionTip = false
 
 new Vue({

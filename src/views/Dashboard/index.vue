@@ -1,6 +1,9 @@
 <template>
     <div>
-        <router-view></router-view>
+        <keep-alive>
+            <router-view v-if="$route.meta.keepAlive"/>
+        </keep-alive>
+        <router-view v-if="!$route.meta.keepAlive"/>
         <van-tabbar v-model="active" active-color="#75a342">
             <van-tabbar-item replace to="/home">
                 <span>首页</span>
@@ -27,7 +30,7 @@
         name: "index",
         data(){
             return {
-                active:0,
+                active: Number(sessionStorage.getItem('tabBarActiveIndex')) || 0,
                 home_icon: {
                     normal: require('@/images/tabbar/home_default.png'),
                     active: require('@/images/tabbar/home_selected.png')
@@ -45,7 +48,16 @@
                     active: require('@/images/tabbar/mine_selected.png')
                 }
             }
+        },
+        watch: {
+            active(value){
+                // console.log(value);
+                let tabBarActiveIndex = value > 0 ? value : 0;
+                // 缓存到本地
+                sessionStorage.setItem('tabBarActiveIndex', value);
+            }
         }
+
     }
 </script>
 
